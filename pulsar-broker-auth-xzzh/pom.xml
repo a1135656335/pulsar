@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>pulsar-broker-auth-xzzh</artifactId>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>protobuf-maven-plugin</artifactId>
+        <configuration>
+          <checkStaleness>true</checkStaleness>
+          <pluginArtifact>
+            io.grpc:protoc-gen-grpc-java:${protoc-gen-grpc-java.version}:exe:${os.detected.classifier}
+          </pluginArtifact>
+          <pluginId>grpc-java</pluginId>
+          <protocArtifact>
+            com.google.protobuf:protoc:${protoc3.version}:exe:${os.detected.classifier}
+          </protocArtifact>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>compile-custom</goal>
+            </goals>
+            <phase>generate-sources</phase>
+          </execution>
+        </executions>
+        <groupId>org.xolstice.maven.plugins</groupId>
+        <version>${protobuf-maven-plugin.version}</version>
+      </plugin>
+    </plugins>
+
+  </build>
+
+  <dependencies>
+    <dependency>
+      <artifactId>pulsar-broker-common</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>testmocks</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <scope>test</scope>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>grpc-all</artifactId>
+      <groupId>io.grpc</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>protobuf-java</artifactId>
+      <groupId>com.google.protobuf</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>protobuf-java-util</artifactId>
+      <groupId>com.google.protobuf</groupId>
+    </dependency>
+  </dependencies>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>pulsar</artifactId>
+    <groupId>org.apache.pulsar</groupId>
+    <version>2.8.0</version>
+  </parent>
+
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+
+</project>

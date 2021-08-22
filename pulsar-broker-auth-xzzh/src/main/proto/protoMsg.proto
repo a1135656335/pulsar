@@ -1,0 +1,21 @@
+syntax = "proto3";
+option java_package = "org.apache.pulsar.broker.authentication";
+option java_outer_classname = "ProtoMsg";
+import "google/protobuf/any.proto";
+
+message Jwt {
+  string jwt = 1;
+}
+
+message ResultPulsar {
+  int32 statusCode = 1;
+  string msg = 2;
+  PulsarUserInfo pulsarUserInfo = 3;
+}
+
+message PulsarUserInfo {
+  string sub = 1;
+  string aud = 2;
+  uint64 audId = 3;
+  repeated string roles = 4;
+}

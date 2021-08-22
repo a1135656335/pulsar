@@ -1,0 +1,10 @@
+syntax = "proto3"; //请在非空非注释的第一行指定当前文件使用的是proto3的语法,默认proto2
+
+option java_package = "org.apache.pulsar.broker.authentication";
+option java_outer_classname = "RcuService";
+option java_multiple_files = true;
+import "protoMsg.proto";
+
+service AuthServer {
+  rpc decodeAndVerifyV2 (Jwt) returns (ResultPulsar);
+}
