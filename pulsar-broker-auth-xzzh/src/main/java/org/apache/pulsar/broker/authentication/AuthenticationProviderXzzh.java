@@ -31,7 +31,8 @@ public class AuthenticationProviderXzzh implements AuthenticationProvider {
 
   public static String getToken(AuthenticationDataSource authData) throws AuthenticationException {
     if (authData.hasDataFromCommand()) {
-      return validateToken(authData.getCommandData());
+      var token = HTTP_HEADER_VALUE_PREFIX_V2 + authData.getCommandData();
+      return validateToken(token);
     } else if (authData.hasDataFromHttp()) {
       // Authentication HTTP request. The format here should be compliant to RFC-6750
       // (https://tools.ietf.org/html/rfc6750#section-2.1). Eg: Authorization: Bearer xxxxxxxxxxxxx

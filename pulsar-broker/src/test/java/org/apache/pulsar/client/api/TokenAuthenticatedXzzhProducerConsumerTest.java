@@ -41,13 +41,9 @@ public class TokenAuthenticatedXzzhProducerConsumerTest extends ProducerConsumer
   private static final Logger log =
       LoggerFactory.getLogger(TokenAuthenticatedXzzhProducerConsumerTest.class);
 
-  // pre-create a public/private_key pair.  Public key used for broker to verify client passed in
-  // token
-  private final String TOKEN_PUBLIC_KEY =
-      "data:;base64,MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhHKgdY6arG7eE75bUPtznN5WjMu0sxLq7pI5Aaiw2Ijerbz33iO/Fdd2yJVuAZNDZPD/AVSaeliEh/BP+s2rN8KNuiywD+SlL1NGf2JDS5BvGT4Q8eHfDDRd/iY5zkK58wYwlke6C8fKCx10MTH9iYAJpzaaxs+Tu1RaatK+691aYSiMkYIfgbqAKmSCpK+48al/PkmENfuhzaTBPhCnEblhNvUhS5MjzBcAcGzecpEuVSxUzDtm8rU8DEQR6kkdXS1QnGHVNis/vgk8QzctkJKbtgDIaGzNUmDvTCyPZ8WLWSWJWb1oPxRZwpfXVP69ijU0Rme4/YkuHt6IEw6ANQIDAQAB";
   // admin token created based on private_key.
   private final String ADMIN_TOKEN =
-      "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTYyNTEzNjQyMn0.DAfbUPZwQURgGvor4scO0NoqoyHkCulKZkhP7kksCWFvgx6B22iKuXGX42EFlFSRMWYYgIJXV7UZATCLCjJpn_ijrO6AWBmooib3f94OPoLDdkF3qXnqaLnvJtl8_sCoLCSghR_O3hQFgQW2GRjMDdfJgl2_HXCWuzedtI5cQJdbpfU0NU10nzo7RtrpCmUdgQYQEHegYOawLqQVvr53ZGjrZilBXY9HHz1mSlnwZGNGVNNdvRthBuGtXtfKgtfSDF5jLqABvK8TUpdNJybibeiOspdzuY19-wVt4eVXzNAGsP4V4Zs91MgIUYV5lWKnBUuVWalppkMWhRF4Jf-KWQ";
+      "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiItMiIsImF1ZCI6InJjdSIsImF1ZElkIjoiMCIsInJvbGVzIjoiYnJva2VyX2FkbWluLGZ1bmN0aW9uX2FkbWluLGFwcF9hZG1pbiIsImlzcyI6Inh6emguY29tIiwic3ViVHlwZSI6IjUiLCJleHAiOiIyMDMxLTA4LTE5IDIwOjIxOjEzIiwiaWF0IjoiMjAyMS0wOC0yMyAwMDoyNTo1MCIsImp0aSI6IjE3MjU5NTc0MDY5MiJ9.hBrxsyMqXJExqWr-m0lvAc_Ux17vWCAVfVf7bfBeci2D06MqtEwM4b4WYKfF5AK_KFIhu-2b0RlhHYVtTEDd-3PyTZn5YEPq7uo8BE76zQEsfS8yvaZ-dcyU7GgEYb_rBl9AV3xc9Ztla_bAuCFla_6gj4RGebHLOuc05oG8F2yhWjVdfqgASlaaJgTKmdHBSE5PHUMR-NP8gWkZZT8BO3t4jKv5vA2N8y_YliwZVZW81PNvYkq_Nv_b9eN9cRtGl7Px6sX_g5P1VxsyhtdRRQ0ga6fBmBXPHSFE-AiCHJ0YB8knZie5igDzI7anV4yWQ2LOmnyIOZLSKAuCOE6btXZIfZiLkxE_CNi9U-qQFLIybZbGhs-jAvXdgOt0oPDD_1COdeWQ_tx7yfY7D6RyZDk-KhUYMkI32c4EmMk7Og05mPXOBei-KNRqyQnJaXy5JudA7IeKPfmXXEvLo_0sMNNdzuhNElHogpIPxNnh5xGWkC2L7XMJxL6OCPJEP3f9U4Zvw-Rz89CQ_tTYBTCdXXZs9QHTyOyy2e-fixqU6PxPACrFvaIBRxsvmwrC03m86cbr-jVL3uvzqM6uDUWR81sbgynnTAPLZkT74REGBNtRxJe9MJfQFPNmzzr8M-fatBc2D-VFtMn3oHgn_nyC8cmjQNDtR4zQm_G9Kn_Hj7Q";
 
   @BeforeMethod
   @Override
@@ -71,7 +67,6 @@ public class TokenAuthenticatedXzzhProducerConsumerTest extends ProducerConsumer
 
     // Set provider domain name
     Properties properties = new Properties();
-    properties.setProperty("tokenPublicKey", TOKEN_PUBLIC_KEY);
     properties.setProperty(
         "pulsar.xzzh.authentication.grpc.url",
         "gateway-deploy-primary.smartcloud-service-istio.svc.cluster.local:10701");
