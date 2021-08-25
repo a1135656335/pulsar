@@ -20,245 +20,246 @@
 
 -->
 <project
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.apache.pulsar</groupId>
-    <artifactId>pulsar</artifactId>
-    <version>2.8.0</version>
-    <relativePath>..</relativePath>
-  </parent>
-
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>pulsar-common</artifactId>
-  <name>Pulsar Common</name>
-  <description>Common libraries needed by client/broker/tools</description>
-
-  <dependencies>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>pulsar-client-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>pulsar-client-admin-api</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>io.swagger</groupId>
-      <artifactId>swagger-annotations</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-
-    <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-handler</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-transport-native-epoll</artifactId>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-transport-native-unix-common</artifactId>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
-      <artifactId>bookkeeper-common-allocator</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-configuration</groupId>
-          <artifactId>commons-configuration</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
-      <artifactId>cpu-affinity</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>io.airlift</groupId>
-      <artifactId>aircompressor</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.bookkeeper</groupId>
-      <artifactId>circe-checksum</artifactId>
-      <version>${bookkeeper.version}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>io.netty</groupId>
-          <artifactId>netty-buffer</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>io.netty</groupId>
-          <artifactId>netty-common</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative-boringssl-static</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-codec-haproxy</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-util</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.dataformat</groupId>
-      <artifactId>jackson-dataformat-yaml</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-annotations</artifactId>
-      <scope>provided</scope>
-      <optional>true</optional>
-    </dependency>
-
-    <dependency>
-      <groupId>org.lz4</groupId>
-      <artifactId>lz4-java</artifactId>
-      <version>1.5.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>com.github.luben</groupId>
-      <artifactId>zstd-jni</artifactId>
-      <version>1.3.7-3</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.xerial.snappy</groupId>
-      <artifactId>snappy-java</artifactId>
-      <version>1.1.7.5</version>
-      <scope>test</scope>
-    </dependency>
-      <dependency>
-          <groupId>com.google.code.gson</groupId>
-          <artifactId>gson</artifactId>
-      </dependency>
-
-  </dependencies>
-
   <build>
-  <plugins>
-	<plugin>
-		<groupId>com.github.splunk.lightproto</groupId>
-		<artifactId>lightproto-maven-plugin</artifactId>
-		<version>${lightproto-maven-plugin.version}</version>
-		<executions>
-			<execution>
-				<goals>
-					<goal>generate</goal>
-				</goals>
-			</execution>
-		</executions>
-	</plugin>
-
-    <plugin>
-        <groupId>pl.project13.maven</groupId>
-        <artifactId>git-commit-id-plugin</artifactId>
+    <plugins>
+      <plugin>
+        <artifactId>lightproto-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>git-info</id>
             <goals>
-              <goal>revision</goal>
+              <goal>generate</goal>
             </goals>
           </execution>
         </executions>
+        <groupId>com.github.splunk.lightproto</groupId>
+        <version>${lightproto-maven-plugin.version}</version>
+      </plugin>
+
+      <plugin>
+        <artifactId>git-commit-id-plugin</artifactId>
         <configuration>
-          <useNativeGit>true</useNativeGit>
-          <prefix>git</prefix>
-          <verbose>false</verbose>
           <failOnNoGitDirectory>false</failOnNoGitDirectory>
           <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
           <format>properties</format>
           <gitDescribe>
             <skip>true</skip>
           </gitDescribe>
+          <prefix>git</prefix>
+          <useNativeGit>true</useNativeGit>
+          <verbose>false</verbose>
         </configuration>
-    </plugin>
+        <executions>
+          <execution>
+            <goals>
+              <goal>revision</goal>
+            </goals>
+            <id>git-info</id>
+          </execution>
+        </executions>
+        <groupId>pl.project13.maven</groupId>
+      </plugin>
 
-    <plugin>
-      <groupId>org.codehaus.mojo</groupId>
-      <artifactId>templating-maven-plugin</artifactId>
-      <version>1.0.0</version>
-      <executions>
-        <execution>
-          <id>filtering-java-templates</id>
-          <goals>
-            <goal>filter-sources</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-    <plugin>
-      <groupId>com.github.spotbugs</groupId>
-      <artifactId>spotbugs-maven-plugin</artifactId>
-      <version>${spotbugs-maven-plugin.version}</version>
-      <executions>
-        <execution>
-          <id>spotbugs</id>
-          <phase>verify</phase>
-          <goals>
-            <goal>check</goal>
-          </goals>
-        </execution>
-      </executions>
-      <configuration>
-        <excludeFilterFile>${basedir}/src/main/resources/findbugsExclude.xml</excludeFilterFile>
-      </configuration>
-    </plugin>
-  </plugins>
+      <plugin>
+        <artifactId>templating-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>filter-sources</goal>
+            </goals>
+            <id>filtering-java-templates</id>
+          </execution>
+        </executions>
+        <groupId>org.codehaus.mojo</groupId>
+        <version>1.0.0</version>
+      </plugin>
+      <plugin>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <configuration>
+          <excludeFilterFile>${basedir}/src/main/resources/findbugsExclude.xml</excludeFilterFile>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <id>spotbugs</id>
+            <phase>verify</phase>
+          </execution>
+        </executions>
+        <groupId>com.github.spotbugs</groupId>
+        <version>${spotbugs-maven-plugin.version}</version>
+      </plugin>
+    </plugins>
   </build>
+
+  <dependencies>
+    <dependency>
+      <artifactId>pulsar-client-api</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>pulsar-client-admin-api</artifactId>
+      <groupId>${project.groupId}</groupId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>swagger-annotations</artifactId>
+      <groupId>io.swagger</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>slf4j-api</artifactId>
+      <groupId>org.slf4j</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>jackson-databind</artifactId>
+      <groupId>com.fasterxml.jackson.core</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>guava</artifactId>
+      <groupId>com.google.guava</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>netty-handler</artifactId>
+      <groupId>io.netty</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>netty-transport-native-epoll</artifactId>
+      <classifier>linux-x86_64</classifier>
+      <groupId>io.netty</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>netty-transport-native-unix-common</artifactId>
+      <classifier>linux-x86_64</classifier>
+      <groupId>io.netty</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>bookkeeper-common-allocator</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>commons-configuration</artifactId>
+          <groupId>commons-configuration</groupId>
+        </exclusion>
+      </exclusions>
+      <groupId>org.apache.bookkeeper</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>cpu-affinity</artifactId>
+      <groupId>org.apache.bookkeeper</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>aircompressor</artifactId>
+      <groupId>io.airlift</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>circe-checksum</artifactId>
+      <exclusions>
+        <exclusion>
+          <artifactId>netty-buffer</artifactId>
+          <groupId>io.netty</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>netty-common</artifactId>
+          <groupId>io.netty</groupId>
+        </exclusion>
+      </exclusions>
+      <groupId>org.apache.bookkeeper</groupId>
+      <version>${bookkeeper.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>netty-tcnative-boringssl-static</artifactId>
+      <groupId>io.netty</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>netty-codec-haproxy</artifactId>
+      <groupId>io.netty</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>jetty-util</artifactId>
+      <groupId>org.eclipse.jetty</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>commons-lang3</artifactId>
+      <groupId>org.apache.commons</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <groupId>javax.ws.rs</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>commons-io</artifactId>
+      <groupId>commons-io</groupId>
+    </dependency>
+
+    <dependency>
+      <artifactId>spotbugs-annotations</artifactId>
+      <groupId>com.github.spotbugs</groupId>
+      <optional>true</optional>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>lz4-java</artifactId>
+      <groupId>org.lz4</groupId>
+      <scope>test</scope>
+      <version>1.5.0</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>zstd-jni</artifactId>
+      <groupId>com.github.luben</groupId>
+      <scope>test</scope>
+      <version>1.3.7-3</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>snappy-java</artifactId>
+      <groupId>org.xerial.snappy</groupId>
+      <scope>test</scope>
+      <version>1.1.7.5</version>
+    </dependency>
+    <dependency>
+      <artifactId>gson</artifactId>
+      <groupId>com.google.code.gson</groupId>
+    </dependency>
+
+  </dependencies>
+  <description>Common libraries needed by client/broker/tools</description>
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Pulsar Common</name>
+
+  <parent>
+    <artifactId>pulsar</artifactId>
+    <groupId>org.apache.pulsar</groupId>
+    <relativePath>..</relativePath>
+    <version>2.8.0</version>
+  </parent>
 </project>
