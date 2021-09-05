@@ -75,7 +75,7 @@ public class WebSocketHttpServletRequestWrapperTest {
         "org.apache.pulsar.broker.authentication.PulsarAuthorizationProviderXzzh");
     Properties properties = new Properties();
     properties.setProperty(
-        "pulsar.xzzh.authentication.grpc.url",
+        "pulsarXzzhAuthenticationGrpcUrl",
         "gateway-deploy-primary.smartcloud-service-istio.svc.cluster.local:10701");
     config.setProperties(properties);
     WebSocketService service = new WebSocketService(config);

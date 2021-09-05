@@ -68,7 +68,7 @@ public class TokenAuthenticatedXzzhProducerConsumerTest extends ProducerConsumer
     // Set provider domain name
     Properties properties = new Properties();
     properties.setProperty(
-        "pulsar.xzzh.authentication.grpc.url",
+        "pulsarXzzhAuthenticationGrpcUrl",
         "gateway-deploy-primary.smartcloud-service-istio.svc.cluster.local:10701");
     conf.setProperties(properties);
     super.init();

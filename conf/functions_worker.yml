@@ -117,14 +117,14 @@ exposeAdminClientEnabled: false
 
 functionRuntimeFactoryClassName: org.apache.pulsar.functions.runtime.process.ProcessRuntimeFactory
 functionRuntimeFactoryConfigs:
-    # location of log files for functions
-    logDirectory: logs/
-    # change the jar location only when you put the java instance jar in a different location
-    javaInstanceJarLocation:
-    # change the python instance location only when you put the python instance jar in a different location
-    pythonInstanceLocation:
-    # change the extra dependencies location:
-    extraFunctionDependenciesDir:
+  # location of log files for functions
+  logDirectory: logs/
+  # change the jar location only when you put the java instance jar in a different location
+  javaInstanceJarLocation:
+  # change the python instance location only when you put the python instance jar in a different location
+  pythonInstanceLocation:
+  # change the extra dependencies location:
+  extraFunctionDependenciesDir:
 
 #### Thread Runtime ####
 # Pulsar function instances are run as threads
@@ -276,6 +276,8 @@ authenticationEnabled: false
 authorizationEnabled: false
 # Set of authentication provider name list, which is a list of class names
 authenticationProviders:
+  pulsarXzzhAuthenticationGrpcUrl = login.smartcloud-service-istio.svc.cluster.local:10801
+  pulsarXzzhAuthenticationGrpckeepAliveDuration =
 # Authorization provider fully qualified class-name
 authorizationProvider: org.apache.pulsar.broker.authorization.PulsarAuthorizationProvider
 # Set of role names that are treated as "super-user", meaning they will be able to access any admin-api
