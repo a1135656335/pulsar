@@ -276,8 +276,10 @@ authenticationEnabled: false
 authorizationEnabled: false
 # Set of authentication provider name list, which is a list of class names
 authenticationProviders:
-  pulsarXzzhAuthenticationGrpcUrl = login.smartcloud-service-istio.svc.cluster.local:10801
-  pulsarXzzhAuthenticationGrpckeepAliveDuration =
+
+# Set of authentication
+pulsarXzzhAuthenticationGrpcUrl: login.smartcloud-service-istio.svc.cluster.local:10801
+pulsarXzzhAuthenticationGrpckeepAliveDuration:
 # Authorization provider fully qualified class-name
 authorizationProvider: org.apache.pulsar.broker.authorization.PulsarAuthorizationProvider
 # Set of role names that are treated as "super-user", meaning they will be able to access any admin-api
