@@ -90,7 +90,10 @@ public class AuthenticationProviderXzzh implements AuthenticationProvider {
       throw new IOException("No authentication grpc server url");
     }
     if (config.getProperty(AUTHENTICATION_GRPC_KEEPALIVE_DURATION) != null) {
-      keepAliveDuration = (Long) config.getProperty(AUTHENTICATION_GRPC_KEEPALIVE_DURATION);
+      String value = config.getProperty(AUTHENTICATION_GRPC_KEEPALIVE_DURATION).toString();
+      if (StringUtils.isNotBlank(value)) {
+        keepAliveDuration = Long.parseLong(value);
+      }
     }
     var channel =
         ManagedChannelBuilder.forTarget(url)
